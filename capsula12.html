@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cápsula del Tiempo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #40e4b3;
+        }
+
+        header {
+            text-align: center;
+            background: #0541b1;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background: rgb(11, 128, 128);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background: #3f72af;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #112d4e;
+        }
+
+       
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            section {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Cápsula del Tiempo</h1>
+    </header>
+    <section>
+        <h2>Sobre mí</h2>
+        <textarea id="bio" rows="2" placeholder="Escribe una breve presentación..."></textarea>
+        <h2>Nombre</h2>
+        <textarea id="nombre" rows="1" placeholder="Nombre"></textarea>
+        <h2>Fecha</h2>
+        <input type="date">
+    </section>
+    <section>
+        <h2>Mis Metas</h2>
+        <input type="text" id="nuevaMeta" placeholder="Escribe una meta...">
+        <button onclick="agregarMeta()">Agregar</button>
+        <ul id="listaMetas"></ul>
+    </section>
+    <section>
+        <h2>Momentos importantes</h2>
+        <p>Fecha</p>
+        <input type="date">
+        <p>Descripción</p>
+        <textarea id="descripcion" rows="2" placeholder="Qué pasó y por qué es importante"></textarea>
+        <button type="submit">Añadir momento</button>
+    </section>
+    <section>
+        <h2>Música, series y tendencias</h2>
+        <p>Canciones/artistas que más escucho</p>
+        <textarea id="musica" rows="2" placeholder="Lista de tus gustos"></textarea>
+        <p>Series/películas/juegos favoritos</p>
+        <textarea id="entretenimiento" rows="2" placeholder="Tu entretenimiento favorito"></textarea>
+        <p>Tendencias/memos/aps/ropa, etc.</p>
+        <textarea id="tendencias" rows="2" placeholder="Qué usas"></textarea>
+    </section>
+    <section>
+        <h2>Carta a mi yo del futuro</h2>
+        <textarea id="carta" rows="6" placeholder="Escribe tu mensaje..."></textarea>
+        <br><br>
+        <button onclick="guardarCarta()">Guardar Carta</button>
+    </section>
+    <section>
+        <h2>Mi Imagen</h2>
+        <input type="file" id="subirImagen" accept="image/*">
+        <div id="contenedorImagen"></div>
+    </section>
+    <footer>
+        <p style="text-align:center">Creado por Jesus Nolasquez Agustin - 2025</p>
+    </footer>
+    <script>
+      
+        const bio = document.getElementById("bio");
+        bio.value = localStorage.getItem("bio") || "";
+        bio.addEventListener("input", () => {
+            localStorage.setItem("bio", bio.value);
+        });
+
+    
+        const listaMetas = document.getElementById("listaMetas");
+        const metasGuardadas = JSON.parse(localStorage.getItem("metas") || "[]");
+
+        function mostrarMetas() {
+            listaMetas.innerHTML = "";
+            metasGuardadas.forEach(meta, i) => }
+                const li = document.createElement("li");
+                li.textContent = meta;
+                li.onclick = ()
